@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Http } from '@angular/http';
 
 @Component({
   selector: 'app-search',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private http: Http
+  ) { }
+
+  callDb() {
+    this.http.get('/api/favorites')
+    .subscribe(res => console.log(res));
+  }
 
   ngOnInit() {
+    this.callDb();
   }
 
 }
