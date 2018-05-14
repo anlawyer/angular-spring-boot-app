@@ -5,12 +5,14 @@
       <h3>Search for an API</h3>
       <h5>The API for APIs</h5>
       <br />
-      <form (onSubmit)="callAPI()">
+      <form>
         <div class="form-group">
-          <input type="text" placeholder="Enter a topic" name="searchTerm" (ngModel)="searchTerm">
+          <input type="text" placeholder="Enter a topic" name="searchTerm">
         </div>
           <button type="submit" class="btn btn-info">Submit</button>
       </form>
+      <br />
+      <a class="btn btn-dark" routerLink="/api/favorites">See Favorite APIs</a>
     </div>
     <div class="col">
       <div *ngIf="apis">

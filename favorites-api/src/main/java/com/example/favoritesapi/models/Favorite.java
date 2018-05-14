@@ -12,7 +12,13 @@ public class Favorite {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "URL")
-    private String url;
+    @Column(name = "API")
+    private String API;
+
+    @Column(name = "Description")
+    private String Description;
+
+    @Column(name = "Link")
+    private String Link;
 
 }

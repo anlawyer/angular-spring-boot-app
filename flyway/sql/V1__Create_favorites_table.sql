@@ -1,4 +1,6 @@
 create table FAVORITES (
     ID serial,
-    URL varchar NOT NULL
+    API varchar NOT NULL,
+    Description varchar NOT NULL,
+    Link varchar NOT NULL
 );

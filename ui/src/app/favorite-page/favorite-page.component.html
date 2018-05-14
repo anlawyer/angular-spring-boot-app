@@ -1,0 +1,20 @@
+<nav class="navbar"></nav>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h3>Favorited APIs</h3>
+    </div>
+    <div class="col">
+      <div *ngIf="favorites">
+        <div class="card" *ngFor="let fav of favorites" style="max-width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{fav.API}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{api.Description}}</h6>
+            <a href="{{api.Link}}" class="btn btn-info">Go to API</a>
+            <a href="#" class="btn btn-dark">Delete</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
