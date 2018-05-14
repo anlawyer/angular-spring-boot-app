@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
+import { ActivatedRoute }   from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -8,17 +9,25 @@ import { Http } from '@angular/http';
 })
 export class SearchComponent implements OnInit {
 
+  apis: any;
+
   constructor(
-    private http: Http
+    private http: Http,
+    private route: ActivatedRoute
   ) { }
 
-  callDb() {
-    this.http.get('/api/favorites')
-    .subscribe(res => console.log(res));
-  }
+  // callDb() {
+  //   this.http.get('/api/favorites')
+  //   .subscribe(res => console.log(res));
+  // }
 
   ngOnInit() {
-    this.callDb();
+    this.callAPI();
+  }
+
+  callAPI() {
+    this.http.get('https://api.publicapis.org/entries')
+    .subscribe(res => this.apis = res.json().entries);
   }
 
 }
