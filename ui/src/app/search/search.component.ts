@@ -10,6 +10,7 @@ import { ActivatedRoute }   from '@angular/router';
 export class SearchComponent implements OnInit {
 
   apis: any;
+  searchTerm = '';
 
   constructor(
     private http: Http,
@@ -22,11 +23,12 @@ export class SearchComponent implements OnInit {
   // }
 
   ngOnInit() {
-    this.callAPI();
   }
 
   callAPI() {
-    this.http.get('https://api.publicapis.org/entries')
+    console.log('called');
+    // this.http.get('https://api.publicapis.org/entries?title=${searchTerm}')
+    this.http.get('https://api.publicapis.org/entries?title=' + this.searchTerm)
     .subscribe(res => this.apis = res.json().entries);
   }
 

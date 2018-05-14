@@ -1,11 +1,28 @@
-  <input type="text">
-  <button>Search</button>
-  <div class="container" *ngIf="apis">
-    <div class="row" *ngFor="let api of apis">
-      <div class="col">
-        <a href="{{api.Link}}">
-          <h3>{{api.API}}</h3>
-        </a>
+<nav class="navbar"></nav>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h3>Search for an API</h3>
+      <h5>The API for APIs</h5>
+      <br />
+      <form (onSubmit)="callAPI()">
+        <div class="form-group">
+          <input type="text" placeholder="Enter a topic" name="searchTerm" (ngModel)="searchTerm">
+        </div>
+          <button type="submit" class="btn btn-info">Submit</button>
+      </form>
+    </div>
+    <div class="col">
+      <div *ngIf="apis">
+        <div class="card" *ngFor="let api of apis" style="max-width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{api.API}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{api.Description}}</h6>
+            <a href="{{api.Link}}" class="btn btn-info">Go to API</a>
+            <a href="#" class="btn btn-dark">Favorite</a>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
 </div>
